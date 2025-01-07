@@ -1,0 +1,14 @@
+{
+  "name": "@tcc/mfe-auth",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "NODE_ENV=production tsc -b && vite build",
+    "build:watch": "tsc -b && vite build --watch",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "serve": "serve dist/assets -l 3001 -C"
+  }
+}
