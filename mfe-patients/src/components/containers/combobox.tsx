@@ -48,6 +48,10 @@ export const Combobox = ({
     setOpen(false);
   };
 
+  const clearAll = () => {
+    setValue([]);
+  };
+
   React.useEffect(() => {
     if (open) setValue(initialValue);
   }, [open, initialValue]);
@@ -89,7 +93,7 @@ export const Combobox = ({
             </CommandGroup>
           </CommandList>
         </Command>
-        <div className="w-full">
+        <div className="w-full space-y-2">
           <Button
             size="xs"
             variant="default"
@@ -98,6 +102,14 @@ export const Combobox = ({
           >
             Aplicar
           </Button>
+          <div className="flex justify-between">
+            <p className="text-xs text-green-800">
+              {value.length} selecionados
+            </p>
+            <a href="#" className="text-xs text-green-800" onClick={clearAll}>
+              Limpar
+            </a>
+          </div>
         </div>
       </PopoverContent>
     </Popover>

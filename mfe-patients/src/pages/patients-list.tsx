@@ -47,8 +47,17 @@ const PatientsListPage: React.FC<PatientsListPageProps> = () => {
     return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "***.$2.$3-**");
   };
 
-  const [filters, setFilters] = React.useState<
-    { label: string; value: string; valueKey: string }[]
+  const [typeFilterSelection, setTypeFilterSelection] = React.useState<
+    { label: string; value: string }[]
+  >([]);
+  const [ownerFilterSelection, setOwnerFilterSelection] = React.useState<
+    { label: string; value: string }[]
+  >([]);
+  const [serviceFilterSelection, setServiceFilterSelection] = React.useState<
+    { label: string; value: string }[]
+  >([]);
+  const [doctorFilterSelection, setDoctorFilterSelection] = React.useState<
+    { label: string; value: string }[]
   >([]);
 
   const getFilterSet = (
@@ -87,39 +96,73 @@ const PatientsListPage: React.FC<PatientsListPageProps> = () => {
     const selected = typeFilterItems.filter((item) =>
       values.includes(item.value)
     );
-    setFilters(selected);
+    setTypeFilterSelection(selected);
   };
 
   const onApplyFilterOwner = (values: string[]) => {
     const selected = ownerFilterItems.filter((item) =>
       values.includes(item.value)
     );
-    setFilters(selected);
+    setOwnerFilterSelection(selected);
   };
 
   const onApplyFilterAppointment = (values: string[]) => {
     const selected = appointmentFilterItems.filter((item) =>
       values.includes(item.value)
     );
-    setFilters(selected);
+    setServiceFilterSelection(selected);
   };
 
   const onApplyFilterDoctor = (values: string[]) => {
     const selected = doctorFilterItems.filter((item) =>
       values.includes(item.value)
     );
-    setFilters(selected);
+    setDoctorFilterSelection(selected);
   };
 
   // Corrigir esse filtro para que ele vá encadeando os filtros
   const list = useMemo(() => {
-    if (filters.length === 0) return animalsList;
-    return animalsList.filter((animal) => {
-      return filters.filter((filter) => {
-        return animal[filter.valueKey as keyof typeof animal] === filter.value;
-      });
-    });
-  }, [filters]);
+    const result = [];
+    for (const animal of animalsList) {
+      if (
+        typeFilterSelection.length > 0 &&
+        !typeFilterSelection.find((item) => item.value === animal.type)
+      ) {
+        continue;
+      }
+
+      if (
+        ownerFilterSelection.length > 0 &&
+        !ownerFilterSelection.find((item) => item.value === animal.cpf)
+      ) {
+        continue;
+      }
+
+      if (
+        serviceFilterSelection.length > 0 &&
+        !serviceFilterSelection.find(
+          (item) => item.value === animal.lastAppointmentType
+        )
+      ) {
+        continue;
+      }
+
+      if (
+        doctorFilterSelection.length > 0 &&
+        !doctorFilterSelection.find((item) => item.value === animal.lastDoctor)
+      ) {
+        continue;
+      }
+
+      result.push(animal);
+    }
+    return result;
+  }, [
+    typeFilterSelection,
+    ownerFilterSelection,
+    serviceFilterSelection,
+    doctorFilterSelection,
+  ]);
 
   return (
     <div className="size-full flex bg-gray-100">
