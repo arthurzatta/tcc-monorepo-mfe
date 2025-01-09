@@ -28,7 +28,7 @@ const Patients = ({
     history.listen(onParentNavigate);
   }, [location]);
 
-  return <div ref={ref} id="mfe-patients" className="[&>div]:p-0" />;
+  return <div ref={ref} id="mfe-patients" className="size-full" />;
 };
 
 export default Patients;

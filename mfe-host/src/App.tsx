@@ -1,6 +1,7 @@
 import { createBrowserHistory } from "history";
 import React, { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
+import Dashboard from "./page/Dashboard/page";
 import Home from "./page/Home/page";
 import Router from "./routes/router";
 import Template from "./template/template";
@@ -36,6 +37,7 @@ function App() {
                 <Patients history={browserHistory} basename="patients/" />
               }
             />
+            <Route path={"dashboard"} element={<Dashboard />} />
           </Route>
         </Routes>
       </Router>

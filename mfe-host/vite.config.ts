@@ -13,7 +13,7 @@ export default defineConfig({
       remotes: {
         "mfe-auth": "http://localhost:3001/remoteEntry.js",
         "mfe-patients": "http://localhost:3002/remoteEntry.js",
-        "mfe-dashboard": "http://localhost:3002/remoteEntry.js",
+        "mfe-dashboard": "http://localhost:3005/remoteEntry.js",
       },
       shared: ["react", "react-dom"],
     }),

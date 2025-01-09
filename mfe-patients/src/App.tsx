@@ -1,6 +1,7 @@
 import { History } from "history";
 import React, { StrictMode } from "react";
 import { Route, Router, Routes } from "react-router-dom";
+import AddPatients from "./pages/add-patients";
 import PatientPage from "./pages/patient";
 import PatientsListMobilePage from "./pages/patient-list.mobile";
 import PatientsListPage from "./pages/patients-list";
@@ -31,6 +32,7 @@ const App: React.FC<AppProps> = ({ history, basename }) => {
         <Routes>
           <Route path="list" element={<PatientsList history={history} />} />
           <Route path="list/:id" element={<PatientPage history={history} />} />
+          <Route path="insert" element={<AddPatients history={history} />} />
         </Routes>
       </Router>
     </StrictMode>

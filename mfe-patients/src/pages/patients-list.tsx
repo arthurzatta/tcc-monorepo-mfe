@@ -10,35 +10,33 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { cn } from "@/lib/utils";
 import { animalsList } from "@/mocks/patients.mock";
 import { History } from "history";
-import { XIcon } from "lucide-react";
 import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 
-type FilterItemProps = {
-  item: { label: string; value: string };
-  className?: string;
-};
+// type FilterItemProps = {
+//   item: { label: string; value: string };
+//   className?: string;
+// };
 
-const FilterItem = ({ item, className }: FilterItemProps) => {
-  return (
-    <div
-      className={cn(
-        "flex gap-2 items-center w-fit text-[10px] p-1 border bg-gray-100 rounded-sm font-semibold",
-        className
-      )}
-    >
-      <div className="text-black">
-        {item.label}: {item.value}
-      </div>
-      <div className="text-gray-400">
-        <XIcon className="size-3" />
-      </div>
-    </div>
-  );
-};
+// const FilterItem = ({ item, className }: FilterItemProps) => {
+//   return (
+//     <div
+//       className={cn(
+//         "flex gap-2 items-center w-fit text-[10px] p-1 border bg-gray-100 rounded-sm font-semibold",
+//         className
+//       )}
+//     >
+//       <div className="text-black">
+//         {item.label}: {item.value}
+//       </div>
+//       <div className="text-gray-400">
+//         <XIcon className="size-3" />
+//       </div>
+//     </div>
+//   );
+// };
 
 type PatientsListPageProps = { history: History };
 

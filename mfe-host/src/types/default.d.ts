@@ -12,8 +12,8 @@ declare module "mfe-patients/Patients" {
   ): { onParentNavigate: any };
 }
 
-declare module "mfe-dashboard/SimpleBarChart" {
-  export function SimpleBarChart(): JSX.Element;
+declare module "mfe-dashboard/BarChart" {
+  export function BarChart(): JSX.Element;
   export function mount(el: HTMLElement | null): void;
 }
 
