@@ -1,7 +1,7 @@
 import { createBrowserHistory } from "history";
 import React, { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import Dashboard from "./page/Dashboard/page";
+// import Dashboard from "./page/Dashboard/page";
 import Home from "./page/Home/page";
 import Router from "./routes/router";
 import Template from "./template/template";
@@ -15,6 +15,12 @@ const Auth = React.lazy(() =>
 const Patients = React.lazy(() =>
   import("./page/Patients/page").catch(() => ({
     default: () => <div>Failed to load patients</div>,
+  }))
+);
+
+const Dashboard = React.lazy(() =>
+  import("./page/Dashboard/page").catch(() => ({
+    default: () => <div>Failed to load dashboard</div>,
   }))
 );
 

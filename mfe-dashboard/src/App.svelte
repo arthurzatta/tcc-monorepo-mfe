@@ -1,24 +1,23 @@
 <script lang="ts">
-  import BarChart from "./ui/BarChart/BarChart.svelte";
+  import {
+    Chart,
+    Colors,
+    controllers,
+    elements,
+    plugins,
+    scales,
+  } from "./lib/chart";
+  import ServicesTable from "./ui/modules/ServicesTable/ServicesTable.svelte";
+  Chart.register(controllers, scales, plugins, elements, Colors);
 </script>
 
 <main>
-  <div class="card">
-    <BarChart />
-  </div>
+  <ServicesTable />
 </main>
 
 <style>
   main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100%;
     width: 100%;
-  }
-
-  .card {
-    width: 400px;
-    height: 900px;
   }
 </style>

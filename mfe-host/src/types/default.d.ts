@@ -17,11 +17,10 @@ declare module "mfe-dashboard/BarChart" {
   export function mount(el: HTMLElement | null): void;
 }
 
-declare module "mfe-dashboard/SimpleLineChart" {
-  export default function (): JSX.Element;
+declare module "mfe-dashboard/LineChart" {
+  export function mount(el: HTMLElement | null): void;
 }
 
-declare module "mfe-dashboard/SimpleRadarChart" {
-  export function SimpleRadarChart(): JSX.Element;
+declare module "mfe-dashboard/ServicesTable" {
   export function mount(el: HTMLElement | null): void;
 }

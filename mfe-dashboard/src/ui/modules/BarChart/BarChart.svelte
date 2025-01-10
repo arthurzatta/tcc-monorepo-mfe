@@ -1,28 +1,20 @@
 <script lang="ts">
   import type { Action } from "svelte/action";
-  import {
-    Chart,
-    Colors,
-    controllers,
-    elements,
-    plugins,
-    scales,
-  } from "../../lib/chart";
-  import { BG_COLORS, BORDER_COLORS } from "../../utils/colors";
-  import { months } from "../../utils/date-time";
+  import { Chart } from "../../../lib/chart";
+  import { BG_COLORS, BORDER_COLORS } from "../../../utils/colors";
+  import { months } from "../../../utils/date-time";
 
-  Chart.register(controllers, scales, plugins, elements, Colors);
   let chart: Chart | null = null;
   let chartDataFirst = $state([65, 59, 80, 81, 56, 55, 40]);
   let chartDataSecond = $state([65, 59, 80, 81, 56, 55, 40].reverse());
 
   $effect(() => {
-    const interval = setInterval(() => {
-      chartDataFirst = chartDataFirst.map((v) => v + Math.random() * 10);
-      chartDataSecond = chartDataSecond.map((v) => v + Math.random() * 10);
-    }, 5000);
-
-    return () => clearInterval(interval);
+    window.addEventListener("update-dashboard-data", (e: any) => {
+      console.log("mfe-dashboard:LineChart", e.detail);
+      const data = e.detail.data.barChart;
+      chartDataFirst = data.first;
+      chartDataSecond = data.second;
+    });
   });
 
   const createChart: Action<
