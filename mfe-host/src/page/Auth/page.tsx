@@ -22,11 +22,9 @@ const Auth = ({
       },
       initialPath: location.pathname,
       basename,
-      defaultHistory: history,
     });
-    const unlisten = history.listen(onParentNavigate);
-    return () => unlisten();
-  }, [location]);
+    history.listen(onParentNavigate);
+  }, []);
 
   return <div ref={ref} id="mfe-auth" className="size-full" />;
 };

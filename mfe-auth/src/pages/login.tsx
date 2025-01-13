@@ -55,9 +55,13 @@ const LoginPage = () => {
         {!showPassword && (
           <div className="text-[10px] text-blue-900 font-semibold">
             Não possui uma conta?{" "}
-            <a href="" onClick={handleClick} className="text-text-600">
+            <Link
+              to="/register"
+              // onClick={handleClick}
+              className="text-text-600"
+            >
               Registrar-se
-            </a>
+            </Link>
           </div>
         )}
       </div>

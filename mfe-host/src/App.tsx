@@ -40,7 +40,7 @@ function App() {
             <Route
               path={"patients/*"}
               element={
-                <Patients history={browserHistory} basename="patients/" />
+                <Patients history={browserHistory} basename="patients" />
               }
             />
             <Route path={"dashboard"} element={<Dashboard />} />

@@ -22,7 +22,6 @@ const Patients = ({
       },
       initialPath: location,
       basename,
-      // defaultHistory: history,
     });
 
     history.listen(onParentNavigate);

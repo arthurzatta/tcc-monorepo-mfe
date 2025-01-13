@@ -28,13 +28,22 @@ const App: React.FC<AppProps> = ({ history, basename }) => {
 
   return (
     <StrictMode>
-      <Router navigator={history} basename={basename} location={state.location}>
-        <Routes>
-          <Route path="list" element={<PatientsList history={history} />} />
-          <Route path="list/:id" element={<PatientPage history={history} />} />
-          <Route path="insert" element={<AddPatients history={history} />} />
-        </Routes>
-      </Router>
+      <div className="size-full">
+        <Router
+          navigator={history}
+          basename={basename}
+          location={state.location}
+        >
+          <Routes>
+            <Route path="list" element={<PatientsList history={history} />} />
+            <Route
+              path="list/:id"
+              element={<PatientPage history={history} />}
+            />
+            <Route path="insert" element={<AddPatients history={history} />} />
+          </Routes>
+        </Router>
+      </div>
     </StrictMode>
   );
 };

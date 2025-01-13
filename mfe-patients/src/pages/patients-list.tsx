@@ -223,7 +223,7 @@ const PatientsListPage: React.FC<PatientsListPageProps> = () => {
                     <div className="flex items-center gap-2">
                       <Checkbox aria-label="Select row" />
                       <Link
-                        to={`/patients/${animal.id}`}
+                        to={`/list/${animal.id}`}
                         className="underline font-medium"
                       >
                         {animal.name}

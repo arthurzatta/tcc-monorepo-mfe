@@ -47,7 +47,10 @@ const PatientPage: React.FC<PatientPageProps> = () => {
         {/* Buttons */}
         <div className="flex flex-col gap-2 mt-auto">
           <Button>Mais informações</Button>
-          <Button variant={"ghost"} onClick={() => navigate("..")}>
+          <Button
+            variant={"ghost"}
+            onClick={() => navigate("/list", { replace: true })}
+          >
             <ArrowLeftIcon />
             Voltar para pacientes
           </Button>
