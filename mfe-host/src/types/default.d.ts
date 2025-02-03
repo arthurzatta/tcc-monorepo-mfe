@@ -6,10 +6,7 @@ declare module "mfe-auth/Auth" {
 }
 
 declare module "mfe-patients/Patients" {
-  export function mount(
-    el: HTMLElement | null,
-    options: Options
-  ): { onParentNavigate: any };
+  export function mount(el: HTMLElement | null): void;
 }
 
 declare module "mfe-dashboard/BarChart" {

@@ -12,7 +12,6 @@ export default defineConfig({
       exposes: {
         "./Patients": "./src/main.tsx",
       },
-      // shared: ["react", "react-dom"],
     }),
   ],
   resolve: {

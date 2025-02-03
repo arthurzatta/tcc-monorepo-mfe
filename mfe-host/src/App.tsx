@@ -1,16 +1,5 @@
-import { createBrowserHistory } from "history";
 import React, { Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
 // import Dashboard from "./page/Dashboard/page";
-import Home from "./page/Home/page";
-import Router from "./routes/router";
-import Template from "./template/template";
-
-const Auth = React.lazy(() =>
-  import("./page/Auth/page").catch(() => ({
-    default: () => <div>Failed to load auth</div>,
-  }))
-);
 
 const Patients = React.lazy(() =>
   import("./page/Patients/page").catch(() => ({
@@ -18,36 +7,16 @@ const Patients = React.lazy(() =>
   }))
 );
 
-const Dashboard = React.lazy(() =>
-  import("./page/Dashboard/page").catch(() => ({
-    default: () => <div>Failed to load dashboard</div>,
-  }))
-);
-
 function App() {
-  const browserHistory = createBrowserHistory();
-
   return (
-    <Suspense fallback="Loading Auth...">
-      <Router history={browserHistory}>
-        <Routes>
-          <Route element={<Template />}>
-            <Route index element={<Home />} />
-            <Route
-              path={"/*"}
-              element={<Auth history={browserHistory} basename={"/"} />}
-            />
-            <Route
-              path={"patients/*"}
-              element={
-                <Patients history={browserHistory} basename="patients" />
-              }
-            />
-            <Route path={"dashboard"} element={<Dashboard />} />
-          </Route>
-        </Routes>
-      </Router>
-    </Suspense>
+    <div className="flex flex-col gap-2 size-full border-2 border-red-500 p-4 text-sm">
+      <nav className="flex items-center justify-center border border-red-500 py-1">
+        <div>Barra de navegação</div>
+      </nav>
+      <Suspense fallback="Loading Auth...">
+        <Patients />
+      </Suspense>
+    </div>
   );
 }
 
