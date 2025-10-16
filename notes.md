@@ -1,15 +1,4 @@
-## Descrição geral dos estudos de caso
+### Observações
 
-### Estudo de Caso 1
-
-Primeiramente foi configurado o plugin module federation nos dois projetos. O projeto Auth expondo seus módulos e o projeto Shell definindo o endereço de acesso aos módulos do outro projeto. Para configurar essa dinâmica o foco é dado em dois atributos: remotes e exposes. O remote define os módulos que serão expostos para uso em outras aplicações e o exposes quais contêineres vão ser utilizados, baseado no endereço onde cada um está disponível.
-
-Em seguida, as aplicações foram desenvolvidas. O projeto Auth, implementou uma função chamada mount para integra-lo dentro da árvore de elementos do projeto Shell. A função necessita que um elemento da DOM seja passado por parâmetro para carregar os componentes internos da aplicação. Com isso, não é necessário que a aplicação Shell tome conhecimento sobre qual framework está sendo utilizado nos projetos externos ou como são adicionados a DOM, necessitando apenas de informar onde este módulo deve ser inserido.
-
-Para realizar a integração, foi criado um componente Auth dentro do projeto Shell, realizado um import direto ao projeto mfe-auth, onde está localizado todos os módulos do projeto Auth, e como foi dito no parágrafo anterior, o elemento da DOM onde deveria ser carregado o módulo foi fornecido. Com isso a aplicação Auth ficou pronta para uso.
-
-Primeiramente, foi configurado o plugin \textit{Module Federation} nos dois projetos. O projeto \textit{Auth} foi responsável por expor seus módulos, enquanto o projeto \textit{Shell} definiu o endereço de acesso a esses módulos. Para configurar essa interação, dois atributos principais foram utilizados: \textit{remotes} e \textit{exposes}. O atributo \textit{remotes} especifica os módulos que serão expostos para uso em outras aplicações, enquanto o \textit{exposes} define quais contêineres estarão disponíveis, com base no endereço onde cada um está localizado.
-
-Em seguida, as aplicações foram desenvolvidas. No projeto \textit{Auth}, foi implementada uma função chamada \texttt{mount}, cuja finalidade é permitir a integração do projeto dentro da árvore de elementos do projeto \textit{Shell}. Essa função requer um elemento do \textit{DOM} como parâmetro para carregar os componentes internos da aplicação. Com essa abordagem, o projeto \textit{Shell} não precisa conhecer detalhes específicos, como o \textit{framework} utilizado pelo projeto externo, nem como os componentes são adicionados ao \textit{DOM}, necessitando apenas informar onde o módulo deve ser inserido.
-
-Para realizar a integração, foi criado um componente denominado \texttt{Auth} dentro do projeto \textit{Shell}. Esse componente realiza um \texttt{import} direto do módulo \textit{mfe-auth}, onde estão localizados os componentes do projeto \textit{Auth}. Conforme mencionado anteriormente, foi fornecido o elemento do \textit{DOM} onde o módulo deveria ser carregado. Dessa forma, a aplicação \textit{Auth} ficou totalmente funcional e pronta para uso dentro do projeto \textit{Shell}.
+1. A estilização do css, mesmo com o tailwind, é sobrescrito por outros estilos de outros projetos. É necessário evitar estilizações globais e procurar uma forma de isolar o css entre os projetos. A maneira mais simples séria adicionando um prefixo para cada projeto, no entanto isso é inviável caso precise alterar o prefixo.
+2. O ideal pode ser usar uma config padrão para os projetos.
