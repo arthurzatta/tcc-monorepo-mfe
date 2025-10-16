@@ -1,0 +1,28 @@
+{
+  "name": "@tcc/mfe-host",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "NODE_ENV=development vite",
+    "build": "tsc -b && vite build",
+    "build:watch": "vite build --watch",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-label": "^2.1.7",
+    "@radix-ui/react-popover": "^1.1.14",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "react-day-picker": "^9.7.0",
+    "recharts": "^3.0.2",
+    "tailwind-merge": "^2.6.0",
+    "@tcc/ui-lib": "*"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
+}
